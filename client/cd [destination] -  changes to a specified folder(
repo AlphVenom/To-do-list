@@ -1,0 +1,9 @@
+cd [destination] -  changes to a specified folder(cd = change destination) on the same drive
+                    can go to specified paths by entering the entire path instead of a folder name
+dir - Dislays a list of files and subdirectories in a directory
+[Drive Letter]: - switches to the specified drive
+[command]/? - Displays information about the command, including how it is used and sub commands that can be used with it
+mkdir [Folder Name]- Creates a directory named [Folder Name] in the current directory
+Del x.x - Deletes all files and empty folders in the directory
+del [Folder/File Name] - Deletes the specified file/folder named [Folder/File Name]
+Front-end developer - Designs the elements of an interface through which the user would come into direct contact with

@@ -1,0 +1,102 @@
+<head>
+  <title>To-Do List</title>
+</head>
+
+<body>
+  <div class = "container">
+    <header>
+      <h1>TO DO LIST</h1>
+      {{> loginButtons}}
+      {{> mainBody}}
+      {{> task}}      
+    </header>
+  </div>   
+</body>
+
+<template name="mainBody">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-5">
+          <h4>Create a new task</h4>
+          {{>addTask}}
+        </div>
+      </div>
+    </div>
+  </header>
+</template> 
+
+<template name="task">
+  {{#each MainAll}}
+    <div class="row mb-3" id="{{_id}}">
+      {{#if isPrivate}}
+        <div class="col-auto pr-1">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" checked={{checked}} class="custom-control-input js-checked" id="Check{{_id}}">
+            <label class="custom-control-label" for="Check{{_id}}"><b>(Private)</b>{{Task}}</label>
+          </div>
+        </div>
+        {{#if currentUser}}
+          <div class="col">
+            <button class="btn btn-danger btn-sm js-remove">Delete</button>
+          </div>
+        {{/if}}
+      {{/if}}
+      {{#if isPublic}}
+        <div class="col-auto pr-1">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" checked={{checked}} class="custom-control-input js-checked" id="Check{{_id}}">
+            <label class="custom-control-label" for="Check{{_id}}">{{Task}}</label>
+          </div>
+        </div>
+        {{#if currentUser}}
+          <div class="col">
+            <button class="btn btn-danger btn-sm js-remove">Delete</button>
+          </div>
+        {{/if}}
+      {{/if}}
+    </div>  
+  {{/each}}
+</template>
+
+<template name= "addTask">
+  <div class="row">
+    <div class="col">
+      <form class="new task">
+        <input type ="text" id="taskpath" class="js-addTask" name="text" placeholder="Add task here"/>
+        <div class="form-row align-items-center">
+          <div class="col-auto my-1">
+            <label class="mr-sm-2 sr-only" for="TaskStatus">Task Status</label>
+            <select class="custom-select mr-sm-2" id="TaskStatus">
+              <option selected value="public" >Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+        </div>
+      </form>     
+    </div>
+  </div>
+</template>  
+
+<!-- <template name= "delete"> -->
+  <!-- <div class="row">
+    <div class="col">
+          <button class="js-remove">&times;</button>
+    </div>
+  </div>
+</template>  --> 
+  
+  
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
